@@ -2,7 +2,8 @@ import time
 import datetime
 import pandas as pd
 
-pd.set_option('display.max_columns', None)  # this is done to return all dataframe columns on the terminal results
+# this is done to return all dataframe columns on the terminal results
+pd.set_option('display.max_columns', None)
 
 CITY_CSV = {'chicago': 'chicago.csv',
             'new york city': 'new_york_city.csv',
@@ -66,10 +67,10 @@ month(s): %s
 day(s): %s
 
 Y/N?
-""" % ('-'*60,
-        ', '.join(cities),
-        ', '.join(months),
-        ', '.join(days))).lower()
+""" % ('-' * 60,
+            ', '.join(cities),
+            ', '.join(months),
+            ', '.join(days))).lower()
 
         if sure_input == 'y':
             sure = True
@@ -82,7 +83,7 @@ User Input:
 city: %s
 month(s): %s
 day(s): %s
-""" % ('-'*60,
+""" % ('-' * 60,
         ', '.join(cities),
         ', '.join(months),
         ', '.join(days)))
@@ -144,18 +145,21 @@ def time_stats(df):
 
     start_time = time.time()
     popular_month = df['month'].mode()[0]
-    print('The most popular rental month for {} is {} \n'.format(cities[0].title(), popular_month))
+    print('The most popular rental month for {} is {} \n'.format(
+        cities[0].title(), popular_month))
 
     # display the most common day of week
     popular_day = df['day_of_week'].mode()[0]
-    print('The most common rental day for {} is {}'.format(cities[0].title(), popular_day))
+    print('The most common rental day for {} is {}'.format(
+        cities[0].title(), popular_day))
 
     # display the most common start hour
     popular_hour = df['hour'].mode()[0]
-    print('The most common rental start hour for {} is {}'.format(cities[0].title(), popular_hour))
+    print('The most common rental start hour for {} is {}'.format(
+        cities[0].title(), popular_hour))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print('-' * 40)
 
 
 def station_stats(df):
@@ -166,19 +170,23 @@ def station_stats(df):
 
     # display most commonly used start station
     popular_start_station = df['Start Station'].mode()[0]
-    print('The most commonly used start station in {} is {}'.format(cities[0].title(), popular_start_station))
+    print('The most commonly used start station in {} is {}'.format(
+        cities[0].title(), popular_start_station))
 
     # display most commonly used end station
     popular_end_station = df['End Station'].mode()[0]
-    print('The most commonly used end station in {} is {}'.format(cities[0].title(), popular_end_station))
+    print('The most commonly used end station in {} is {}'.format(
+        cities[0].title(), popular_end_station))
 
     # display most frequent combination of start station and end station trip
     df['Start End Station'] = df['Start Station'] + ' to ' + df['End Station']
-    popular_combination = df['Start End Station'].value_counts().index.values[0]
-    print('The most common pickup and dropoff station in {} is {}'.format(cities[0].title(), popular_combination))
+    popular_combination = df['Start End Station'].value_counts(
+    ).index.values[0]
+    print('The most common pickup and dropoff station in {} is {}'.format(
+        cities[0].title(), popular_combination))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print('-' * 40)
 
 
 def trip_duration_stats(df):
@@ -198,7 +206,7 @@ def trip_duration_stats(df):
     print('Mean travel time for selected duration is {}'.format(mean_travel_time))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print('-' * 40)
 
 
 def user_stats(df):
@@ -214,7 +222,8 @@ def user_stats(df):
     # Display counts of gender
     try:
         gender_count = df['Gender'].value_counts()
-        print('This is count of Gender types \n{}'.format(gender_count.to_string()))
+        print('This is count of Gender types \n{}'.format(
+            gender_count.to_string()))
     except KeyError:
         print('We dont have gender stats for selected city')
 
@@ -233,7 +242,7 @@ def user_stats(df):
         print('We dont have birth year stats for selected city')
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print('-' * 40)
 
 
 def display_data(df):
@@ -246,12 +255,14 @@ def display_data(df):
         df - 5 rows Pandas DataFrame containing raw data based on filters used
     """
     n = 0
-    display_data = input('\nWould you like to see raw data? Enter yes or no.\n')
+    display_data = input(
+        '\nWould you like to see raw data? Enter yes or no.\n')
     while display_data.lower() == 'yes':
-        raw_df = df.iloc[n: n+5]
+        raw_df = df.iloc[n: n + 5]
         print(raw_df)
         n += 5
-        display_data = input('\nDo you want to see more 5 lines of raw data? Enter yes or no.\n').lower()
+        display_data = input(
+            '\nDo you want to see more 5 lines of raw data? Enter yes or no.\n').lower()
 
 
 def main():
