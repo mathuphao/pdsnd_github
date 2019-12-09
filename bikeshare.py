@@ -58,35 +58,29 @@ def verify_selection():
         cities = get_valid_input(CITIES)
         months = get_valid_input(MONTHS)
         days = get_valid_input(DAYS)
-        sure_input = input("""
+        sure_input = input(f"""
 Do you want to use the following input?
-%s
+{('-' * 60)}
 User Input:
-city: %s
-month(s): %s
-day(s): %s
+city: {', '.join(cities)}
+month(s): {', '.join(months)}
+day(s): {', '.join(days)}
 
 Y/N?
-""" % ('-' * 60,
-            ', '.join(cities),
-            ', '.join(months),
-            ', '.join(days))).lower()
+""")
 
         if sure_input == 'y':
             sure = True
 
-    print("""
+    print(f"""
 
 Selected Input
-%s
+{('-' * 60)}
 User Input:
-city: %s
-month(s): %s
-day(s): %s
-""" % ('-' * 60,
-        ', '.join(cities),
-        ', '.join(months),
-        ', '.join(days)))
+city: {', '.join(cities)}
+month(s): {', '.join(months)}
+day(s): {', '.join(days)}
+""")
     return(cities, months, days)
 
 
