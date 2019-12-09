@@ -9,7 +9,7 @@ CITY_CSV = {'chicago': 'chicago.csv',
             'new york city': 'new_york_city.csv',
             'washington': 'washington.csv'}
 
-CITIES = list(CITY_CSV.keys())
+CITIES = list(CITY_CSV.keys())  # gets the keys of the CITY_CSV and and pass as list to CITIES
 MONTHS = ['all', 'january', 'february', 'march', 'april', 'may', 'june']
 DAYS = ['all', 'monday', 'tuesday', 'wednesday',
         'thursday', 'friday', 'saturday', 'sunday']
@@ -37,7 +37,7 @@ def get_valid_input(valid_inputs):
         if not valid_input:
             print('%s is not a valid input' % user_input)
     if user_input == 'all':
-        user_input = [v for v in valid_inputs if v != 'all']
+        user_input = [v for v in valid_inputs if v != 'all']  # return everything on the list but 'all'
     else:
         user_input = [user_input]
     return user_input
@@ -218,7 +218,7 @@ def user_stats(df):
         gender_count = df['Gender'].value_counts()
         print('This is count of Gender types \n{}'.format(
             gender_count.to_string()))
-    except KeyError:
+    except KeyError:  # this is done to avoid program crashing when data does not contain gender
         print('We dont have gender stats for selected city')
 
     # Display earliest, most recent, and most common year of birth
@@ -232,7 +232,7 @@ def user_stats(df):
         earliest_birth_year = int(df['Birth Year'].min())
         print('Earliest birth year is {}'.format(earliest_birth_year))
 
-    except KeyError:
+    except KeyError:  # this is done to avoid program crashing when data does not contain birth year
         print('We dont have birth year stats for selected city')
 
     print("\nThis took %s seconds." % (time.time() - start_time))
