@@ -1,15 +1,35 @@
-### Date created
-Include the date you created this project and README file.
+# Bikeshare Project
+
+##  Getting started
+
+You can clone the latest version of the code by running
+
+```
+git clone https://github.com/mathuphao/pdsnd_github
+```
+
+
+## Date created
+Project created on 09 Dec 2019
 
 ### Project Title
-Replace the Project Title
+Explore US Bikeshare Data
 
 ### Description
-Describe what your project is about and what it does
+Use Python to understand U.S. data. Calculate statistics
+build an interactive environment where a user chooses the data and filter
+for a dataset to analyze
 
 ### Files used
-Include the files used
+chicago.csv
+new_york_city.csv
+washington.csv
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
 
+ Consulted pages:
+
+ The following page was consulted to create a function that expands to see more
+ columns of a pandas DataFrame
+
+https://stackoverflow.com/questions/52938818/how-to-display-increment-raw-data-using-iloc-depending-on-user-input
