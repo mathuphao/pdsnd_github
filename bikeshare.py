@@ -2,7 +2,7 @@ import time
 import datetime
 import pandas as pd
 
-pd.set_option('display.max_columns', None)
+pd.set_option('display.max_columns', None)  # this is done to return all dataframe columns on the terminal results
 
 CITY_CSV = {'chicago': 'chicago.csv',
             'new york city': 'new_york_city.csv',
@@ -237,6 +237,14 @@ def user_stats(df):
 
 
 def display_data(df):
+    """
+    Displays raw data for the specified filters and increments the output by 5 more lines on request.
+
+    Args:
+        (str) yes and no - user input for expanding data
+    Returns:
+        df - 5 rows Pandas DataFrame containing raw data based on filters used
+    """
     n = 0
     display_data = input('\nWould you like to see raw data? Enter yes or no.\n')
     while display_data.lower() == 'yes':

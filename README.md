@@ -24,7 +24,7 @@ for a dataset to analyze
 ### Files used
 
 The following data files were provided by Udacity with the bikeshare data\
-between january and june\
+between january and june
 
 chicago.csv\
 new_york_city.csv\
